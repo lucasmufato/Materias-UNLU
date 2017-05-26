@@ -1,0 +1,21 @@
+img{
+    width: 200px;
+    height: 150px;
+    visibility: hidden;
+}
+
+li{
+    display: inline-block;
+    background-image: url( "img/background.png" );
+    background-repeat: no-repeat;
+    background-size: 200px;
+    margin: 2% 2%;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.seleccionada{
+    border: 3px solid red;
+}

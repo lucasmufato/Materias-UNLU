@@ -1,0 +1,103 @@
+body{
+    margin: 0;
+}
+
+h1{
+    font-size: 3em;
+    margin: 0;
+    color: white;
+    background-color: black;
+    padding: 30px;
+    text-align: center;
+}
+
+aside{
+    float: right;
+    border: 3px solid red;
+    margin: 0;
+    max-width: 35%;
+}
+
+aside h2{
+    font-size: 2em;
+    padding: 1% 2%;
+    text-align: center;
+}
+
+aside ul{
+    list-style: armenian;
+}
+
+aside ul li{
+    margin-top: 5%;
+}
+
+article{
+    float: left;
+    margin-top: 1%;
+    width: 60%;
+}
+article h3{
+    text-align: center;
+    margin-top: 0;
+    font-size: 2em;
+}
+label, input{
+    display: block;
+}
+
+input{
+    margin-bottom: 1%;
+}
+
+#i_titulo{
+    width: 100%;
+    background-color: beige;
+}
+
+#i_descr{
+    width:100%;
+    background-color: beige;
+    height: 250px;
+    margin-bottom: 1%;
+}
+
+#i_submit{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#i_img{
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: cell;
+}
+
+@media only screen and (max-width: 600px) {
+    aside{
+        width: 100%;
+        float: none;
+        display: block;
+        margin: auto;
+        max-width: 95%;
+    }
+    
+    article{
+        width: 100%;
+        float: none;
+        display: block;
+        margin: auto;
+        max-width: 95%;
+    }
+
+}

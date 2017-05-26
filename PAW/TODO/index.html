@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Super TO DO list</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/javascript" src="main.js"></script>
+</head>
+
+<body>
+  <header>
+    <h2>Super TO DO List</h2>
+    <h1>UNLu - PAW</h1>
+  </header>
+  <main>
+    <section class="formulario">
+      <h2>Nuevo TO DO Item: </h2>
+      <form action="" name="nuevoItem">
+        <label for="accion">
+          Acción:
+          <input type="text" name="accion" id="" placeholder="Qué tenés que hacer?">
+        </label>
+        <label for="descripcion">
+          Descripción:
+          <input type="text" name="descripcion" id="" placeholder="Contame un poco más...">
+        </label>
+        <fieldset>
+          <legend>Prioridad:</legend>
+          <label for="prioridad">Alta:
+            <input type="radio" name="prioridad" id="" value="alta" />
+          </label>
+          <label for="prioridad">Media:
+            <input type="radio" name="prioridad" id="" value="media" />
+          </label>
+          <label for="prioridad">Baja:
+            <input type="radio" name="prioridad" id="" value="baja" />
+          </label>
+        </fieldset>
+        <input type="button" value="Agregar a la Lista" onclick="agregarItem();">
+      </form>
+    </section>
+    <section class="lista">
+      <h2>Cosas para hacer:</h2>
+      <div class="prioridad alta"></div>
+      <div class="prioridad media"></div>
+      <div class="prioridad baja"></div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+
+</html>

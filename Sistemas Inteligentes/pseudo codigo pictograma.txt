@@ -1,0 +1,69 @@
+//inicio
+
+//cuento con una matriz de cuadrantes.(las filas y columnas las trato por igual)
+//por bloque se entiende a un conjunto de cuadrantes consecutivos ocupados. son los numero al lado de la fila/columna.
+//cada cuandrante puede estar en un solo estado. estos son: ocupado(negro), vacio(blanco), dudoso(amarillo)
+
+mientras no completo{
+	por cada fila/columna no completa{
+		buscar_bloques()
+	}
+	por cada fila/columnas no completa{
+		poner_espacios_vacios()
+	}
+}
+
+buscar_bloques(){
+	si toda la hilera es dudosa{
+		si la sumatoria de los espacios ocupados por los bloques es mayor que la mitad de la cantidad de dudosos{
+			superponer()
+		}
+	}sino{
+		//si no toda la hilera es dudosa
+		superponer()
+}
+
+superponen(){
+	cambios=falso;
+	repetir{
+		//en todos los casos si hay bloques completos los salteo.
+		si el primer cuadrante no vacio esta ocupado, posiciono el primer bloque arrancando desde esa posicion. cambio=true.
+		si el ultimo cuadrante no vacio esta ocupado, posiciono el ultimo bloque terminando en esa posicion. cambio=true.
+	*1	por cada bloque B en la fila/columna H{
+			posicionar todos los bloques anteriores a B lo mas a la izquierda(o arriba) posible. y todos los bloques siguientes a B lo mas a la derecha(o abajo) posible
+			posicionar B lo mas a la izquiera(o arriba) dentro de sus compañero.
+			posicionar una copia de B -> B' lo mas a la derecha(o abajo) posible dentro de sus compañeros.
+			si B y B' se superponen, esos casilleros donde se superponen se transforman en ocupados. cambios=true.
+			//Ejemplo: bloques 4,5,4 en fila de 18. _ significa vacio
+			//4444____55555_4444
+			//___4444_55555_4444
+			//___0 <-- ese cuadrante queda ocupado.
+			//este ejemplo solo para el primer bloque.
+		}
+		si completo un bloque, el cuadrante anterior al inicio y posterior al fin del bloque se ponen vacios. cambios=true.
+		si completo todos los bloques, completo el resto de los cuadrantes dudosos con vacio. cambios=false. fila/columna completa=true;
+		
+		//Nota *1:
+		si hay cuadrantes ocupados, y cada uno se puede corresponder a un solo bloque. la superposicion se hara siempre conteniendo
+		el cuadrante ocupado
+	}mientras(cambios==falso)
+}
+	
+poner_espacios_vacios(){
+	si el primer bloque NO entra en el primer espacio de cuadrantes dudosos antes de un cuadrante vacio. todos esos cuadrantes dudosos se ponene vacios.
+	si el ultimo bloque NO entra en el ultimo espacio de cuadrantes dudos despues del ultimoespacio vacio. todos esos cuadrantes dudosos se ponen vacios.
+	si un bloque esta completo, pongo espacios antes y/o despues del bloque //puede darse que analizo una fila y habia completado un bloque cuando analices por columnas
+	si hay un solo bloque y hay aunque sea un cuadrante ocupado{
+		posiciono el bloque de forma que termine terminando en el ultimo cuadrante ocupado. los cuadrantes anteriores al bloque estan vacios.
+		posicion el bloque de forma que empiese en el primer cuadrante ocupado. los cuadrantes siguientes al bloque estan vacios.
+	}
+	si hay mas de un bloque y algun cuadrante ocupado {
+		por cada cuadrante ocupado, si pertenece a un solo bloque, posiciono el bloque de forma que termine en dicho cuadrante
+		y vuelvo a superponer de forma que empiese en dicho cuadrante.
+		si despues de todas las superposiciones, me quedan espacios en los que no habria ninguna bloque, esos cuadrantes estan vacios.
+		//ejemplo: fila con 2,3,3. el 0 significa ocupado. el ? significa dudoso. el _ signfica vacio
+		//fila inicial:				?0?????0?????0????
+		//fila con supuestos:		222??33333?33333??
+		//fila final:				?0?__??0??_??0??__
+	}
+}

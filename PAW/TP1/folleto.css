@@ -1,0 +1,74 @@
+/*     HEADER DEL FOLLETO    */
+
+header{
+    background-color: #D24537;
+    margin: 0 0;
+}
+
+strong{
+    font-size: 200%;
+    display: block;
+    text-align: center
+}
+
+h1, h5{
+    color: white
+}
+
+h1{
+    margin-top: 0;
+    margin-left: 1%;
+    margin-bottom: 0;
+}
+/*      CUERPO DEL FOLLETO          */
+
+dl{
+    margin: 0;
+}
+
+section{
+    background-color: #CBBAA0;
+    text-align: center;
+}
+
+h5{
+    background-color: #D24537;
+    display: inline-block;
+    border-color: white;
+    border-radius: 20%;
+    border-style: dotted;
+    padding: 10px;
+    font-size: 1em;
+}
+
+dt{
+    display: inline-block;
+    color:white;
+    background-color: skyblue;
+    padding: 20px 10px;
+    border-radius: 100%
+}
+
+article{
+    display: inline-block;
+}
+.derecha{/*, .d*/
+    float: right;
+    clear: right;
+}
+.izquierda , .l{
+    float: left;
+    clear: left;
+}
+
+/*
+.derecha{
+    position: relative;
+    left: 0%;
+}
+
+.izquierda{
+    position: relative;
+    right: 0%;
+}
+*/

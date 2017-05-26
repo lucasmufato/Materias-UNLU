@@ -1,0 +1,47 @@
+body{
+    background-color: black;
+}
+header{
+    margin: 0 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 200%;
+}
+h1{
+    margin: 0;
+}
+
+nav{
+    padding-top: 3%;
+    padding-bottom: 3%
+}
+
+section{
+    align-content: center;
+    text-align: center;
+    background-color: white;
+    margin: 0 0;
+}
+h3{
+    margin-top: 0;
+}
+footer{
+    background-color: black;
+    color: white;
+}
+
+label{
+    font-size: 150%;
+    display: block;
+}
+
+input{
+    width: 50%;
+    height: 30px;
+}
+
+textarea{
+    width: 50%;
+    height: 100px;
+}

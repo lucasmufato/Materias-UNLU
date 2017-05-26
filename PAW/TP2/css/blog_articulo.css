@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    font-family: 'Ravi Prakash', cursive;
+}
+
+h1{
+    color: white;
+    background-color: black;
+    text-align: center;
+    font-size: 3em;
+    margin: 0;
+    padding: 1%;
+}
+
+#cuerpo{
+    display: block;
+    width: 100%;
+}
+
+pre{
+    float: left;
+    width:760px;
+    overflow: auto;
+}
+
+img{
+    max-width: 30%;
+    float: right;
+}
+
+#fecha, #volver{
+    display: inline-block;
+}
+
+/*          COMENTARIOS                          */
+
+#comentarios{
+    clear: left;
+    display: inline-block;
+    width: 65%;
+    background-color: aliceblue;
+}
+
+#comentarios h5{
+    font-size: 2em;
+    margin: 2%; 
+}
+
+#lista_comentarios{
+    list-style: none;
+    padding: 0;
+    margin-left: 5%;
+    border-right: 5px solid aliceblue;
+    background-color: white;
+    color: #45A049;
+}
+
+.li_comentario .p_comentario_usuario{
+    padding: 1% 0 0 1%;
+    margin-bottom: 0;
+    font-size: 2em;
+}
+
+.li_comentario .p_comentario_coment{
+    margin: 0;
+    padding: 2% 0 2% 5%;
+}
+
+.li_comentario input{
+    float:right;
+}
+
+/*FORMULARIO DE COMENTARIOS*/
+
+#f_nuevo_comentario * {
+    display: block;
+    margin-left: 5%;
+}
+
+#f_nuevo_comentario textarea{
+    width: 60%;
+    height: 5em;
+}
+
+/*           MODIFICAR ARTICULO             */
+
+#f_nuevo_articulo textarea{
+     width: 60%;
+    height: 10em;
+}
+
+#f_nuevo_articulo *{
+    display: block;
+}
+
+#f_nuevo_articulo:hover{
+    height: 100%;
+}
+
+/*          PSEUDO RESPONSIVE              */
+
+@media only screen and (max-width: 600px) {
+    img{
+        width: 100%;
+        float: none;
+        display: block;
+        margin: auto;
+        max-width: 95%;
+    }
+    
+    pre, #comentarios, #modificar{
+        width: 100%;
+        float: none;
+        display: block;
+        margin: auto;
+        max-width: 600px;
+    }
+
+}

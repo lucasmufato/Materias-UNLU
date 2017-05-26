@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>legajo: 117780</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header>
+	<h1>Parcial de Lucas Mufato</h1>
+	<nav>
+	    <a href="buscar.php">Buscar comentarios por mail</a>
+        <a href="#nuevo_comentario">Ingresar un comentario</a>
+	</nav>	
+</header>
+<section id="nuevo_comentario">
+    <form method="post" action="nuevoComentario.php">
+        <label for="f_nombre">Ingrese su nombre</label>
+        <input type="text" name="nombre" id="f_nombre" requeried="true" min="3" max="30">
+        <label for="f_mail">Ingrese su mail</label>
+        <input type="email" name="mail" id="f_mail" max="50" required="true">
+        <label for="f_msj">Mensaje</label>
+        <textarea name="msj" id="msj" placeholder="mensaje" min="5" max="200" requiered="true"></textarea>
+        <input type="submit" value="enviar!">
+    </form>
+</section>
+<footer>
+    <p>Mufato Lucas</p>
+    <p>Legajo: 117780</p>
+    <p class="fecha">28/4/2017</p>
+</footer>
+</body>
+</html>

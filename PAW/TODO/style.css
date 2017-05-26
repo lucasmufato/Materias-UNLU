@@ -1,0 +1,83 @@
+@import url(reset.css);
+body {
+  font-family: calibri;
+}
+header {
+  width: 100%;
+  height: 170px;
+  padding: 3em;
+  align-content: center;
+  background-image: url(images/EscudoUNLuFondoBlanco.png), linear-gradient(to right, green, white);
+  background-position: 0.5em 0.5em, 0 0;
+  background-repeat: no-repeat;
+  background-size: 150px 150px, 100%;
+}
+h2 {
+  margin-left: 200px;
+  font-size: 2em;
+  font-style: italic;
+}
+h1 {
+  margin-left: 200px;
+  font-size: 3em;
+  font-weight: 700;
+}
+label {
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  width: 80%;
+}
+input:[type=text] {
+  width: 70%;
+}
+fieldset {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+legend {
+  border: 3px solid black;
+  border-radius: 5px;
+  text-align: left;
+  margin-left: 3em;
+  padding: 0.5em 1em;
+  background-color: yellow;
+}
+fieldset label {
+  display: inline-block;
+  width: auto
+}
+section {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 2em;
+}
+form {
+  padding: 1em 0;
+  text-align: center;
+}
+input[type="button"] {
+  margin: 1em;
+  padding: 0.5em;
+}
+.prioridad.alta {
+  border: red 2px solid;
+}
+.prioridad.media {
+  border: yellow 2px solid;
+}
+.prioridad.baja {
+  border: green 2px solid;
+}
+.prioridad p {
+  height: 0;
+  overflow: hidden;
+  transition-property: height;
+  transition-duration: 1s;
+}
+.prioridad article:hover p {
+  height: 2em;
+  transition-property: height;
+  transition-duration: 1s;
+}

@@ -1,0 +1,131 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.LinearRegression -S 0 -R 1.0E-8 -num-decimal-places 4
+Relation:     crimepredict-weka.filters.unsupervised.attribute.Remove-R4
+Instances:    1991
+Attributes:   127
+              [list of attributes omitted]
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+
+Linear Regression Model
+
+ViolentCrimesPerPop =
+
+     -0.0006 * state +
+     -0.0002 * county +
+     -0.0015 * fold +
+      0.3009 * population +
+      0.1754 * racepctblack +
+     -0.0633 * racePctWhite +
+     -0.0322 * racePctAsian +
+      0.0635 * racePctHisp +
+      0.1261 * agePct12t21 +
+     -0.2769 * agePct12t29 +
+     -0.1376 * agePct16t24 +
+      0.032  * agePct65up +
+     -0.3321 * numbUrban +
+      0.0513 * pctUrban +
+     -0.245  * medIncome +
+     -0.1781 * pctWWage +
+      0.0433 * pctWFarmSelf +
+     -0.1636 * pctWInvInc +
+      0.0943 * pctWSocSec +
+     -0.0892 * pctWRetire +
+      0.336  * medFamInc +
+      0.1716 * perCapInc +
+     -0.3898 * whitePerCap +
+     -0.0377 * blackPerCap +
+     -0.032  * indianPerCap +
+      0.0432 * OtherPerCap +
+      0.0338 * HispPerCap +
+     -0.1755 * PctPopUnderPov +
+     -0.0977 * PctLess9thGrade +
+      0.0646 * PctNotHSGrad +
+      0.0353 * PctBSorMore +
+      0.2598 * PctEmploy +
+     -0.056  * PctEmplManu +
+      0.0683 * PctOccupManu +
+      0.1116 * PctOccupMgmtProf +
+      0.4652 * MalePctDivorce +
+      0.2271 * MalePctNevMarr +
+      0.1339 * FemalePctDiv +
+     -0.5576 * TotalPctDiv +
+     -0.1602 * PersPerFam +
+     -0.3176 * PctKids2Par +
+     -0.0226 * PctYoungKids2Par +
+      0.0539 * PctWorkMomYoungKids +
+     -0.1894 * PctWorkMom +
+     -0.0625 * NumIlleg +
+      0.1219 * PctIlleg +
+     -0.1956 * NumImmig +
+      0.028  * PctImmigRecent +
+     -0.062  * PctImmigRec8 +
+      0.0468 * PctImmigRec10 +
+     -0.0475 * PctRecentImmig +
+     -0.1422 * PctRecImmig5 +
+      0.3624 * PctRecImmig8 +
+     -0.1696 * PctRecImmig10 +
+     -0.0197 * PctSpeakEnglOnly +
+     -0.1724 * PctNotSpeakEnglWell +
+     -0.1206 * PctLargHouseOccup +
+      0.6167 * PersPerOccupHous +
+     -0.1111 * PersPerOwnOccHous +
+     -0.2331 * PersPerRentOccHous +
+     -0.639  * PctPersOwnOccup +
+      0.1792 * PctPersDenseHous +
+      0.0794 * PctHousLess3BR +
+      0.0299 * MedNumBR +
+      0.1652 * HousVacant +
+     -0.0387 * PctHousOccup +
+      0.4838 * PctHousOwnOcc +
+      0.0634 * PctVacantBoarded +
+     -0.0722 * PctVacMore6Mos +
+      0.0289 * PctHousNoPhone +
+     -0.3511 * OwnOccLowQuart +
+      0.2576 * OwnOccMedVal +
+     -0.2069 * RentLowQ +
+     -0.0267 * RentMedian +
+     -0.0591 * RentHighQ +
+      0.3398 * MedRent +
+      0.0396 * MedRentPctHousInc +
+     -0.0473 * MedOwnCostPctInc +
+     -0.0786 * MedOwnCostPctIncNoMtg +
+      0.1011 * NumInShelters +
+      0.1578 * NumStreet +
+      0.1624 * PctForeignBorn +
+      0.0389 * PctBornSameState +
+     -0.841  * LemasSwornFT +
+     -0.6273 * LemasSwFTFieldOps +
+      0.4386 * LemasSwFTFieldPerPop +
+     -0.1683 * LemasTotalReq +
+      0.1418 * PolicReqPerOffic +
+     -0.11   * PolicPerPop +
+     -0.0668 * RacialMatchCommPol +
+     -0.0839 * PctPolicWhite +
+      0.061  * PctPolicHisp +
+      0.0784 * PctPolicAsian +
+     -0.0744 * PctPolicMinor +
+     -0.2713 * OfficAssgnDrugUnits +
+     -0.0415 * PctUsePubTrans +
+      0.0942 * PolicCars +
+      0.5479 * PolicOperBudg +
+     -0.0869 * LemasPctPolicOnPatr +
+      0.0334 * LemasGangUnitDeploy +
+      0.0464 * LemasPctOfficDrugUn +
+     -0.3029 * PolicBudgPerPop +
+      1.3111
+
+Time taken to build model: 2.75 seconds
+
+=== Cross-validation ===
+=== Summary ===
+
+Correlation coefficient                  0.8044
+Mean absolute error                      0.0973
+Root mean squared error                  0.1387
+Relative absolute error                 54.5042 %
+Root relative squared error             59.4991 %
+Total Number of Instances             1991     

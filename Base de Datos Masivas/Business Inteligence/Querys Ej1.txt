@@ -1,0 +1,21 @@
+select m.id, m.nombre
+from medios m inner join tipo_medio t
+on m.id_tipo_medio = t.id
+where t.descripcion = 'Periódico' or t.descripcion = 'Revista'
+LIMIT 20
+
+select m.*
+from medios m inner join tipo_medio t
+on m.id_tipo_medio = t.id
+inner join ciudades c
+on c.id = m.id_ciudad
+inner join provincias p
+on p.id = c.id_provincia
+where t.descripcion = 'Periódico' or t.descripcion = 'Revista'
+and p.nombre = 'Cordoba'
+LIMIT 20
+
+select m.*
+from medios m
+where m.nombre LIKE 'M%'
+LIMIT 20;
