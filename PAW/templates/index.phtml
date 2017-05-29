@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>mi motor de templates</title>
+    </head>
+    <body>
+        <p>Nombres: </p>
+        <ul>
+            <?php foreach($this->nombres as $nombre): ?>
+            <li><?= $nombre ?> </li>
+            <?php endforeach; ?>
+        </ul>
+    </body>
+</html>
