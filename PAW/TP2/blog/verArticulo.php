@@ -5,6 +5,9 @@
     <title>Mufa's blog</title>
     <link rel="stylesheet" href="../css/blog_articulo.css">
     <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+    <script type="application/javascript" src="../../jquery-3.2.1.min.js"></script>
+    <script type="application/javascript" src="articulo.js"></script>
+    
 </head>
 <body>
 <?php
@@ -73,14 +76,14 @@
     
 ?>
     </ul>
-    <form id="f_nuevo_comentario" method="post" action="dispacher.php">
+    <form id="f_nuevo_comentario">
 <?php 
-        echo " <input type='hidden' name='id' value='$articulo->id'> ";
+        echo " <input type='hidden' name='id' id='idArticulo' value='$articulo->id'> ";
 ?>        
         <label for="i_usuario" > usuario: </label>
         <input id="i_usuario" type="text" name="usuario" max="30">
-        <textarea type="text" name="comentario" min="5" max="300" placeholder="comentario..." required="true"></textarea>
-        <input type="submit" value="nuevo comentario" name="operacion">
+        <textarea type="text" name="comentario" min="5" max="300" placeholder="comentario..." required id="i_coment"></textarea>
+        <button value="nuevo comentario" name="operacion" id="nuevoComentario">nuevo comentario</button>
     </form>
 </section>
 <section id='modificar'>

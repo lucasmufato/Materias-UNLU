@@ -1,0 +1,66 @@
+/*
+this.id_div="carrousel";			//id q tiene el div en el q aparece el carrousel
+this.id_ul_img="carrousel-ul-img";		//id que va a tener el ul q tiene las imagenes
+this.id_ul_puntitos="carrousel-ul-p"; 		//id que va a tener el ul q tiene los puntitos
+this.class_img="carrousel-img";			//clase q van a tener las imagenes	
+this.class_p="carrousel-p";			//clase q van a tener los puntitos
+	*/
+#carrousel{
+	width: 500px;
+	height: 300px;
+	position: relative;
+	display: inline-block;
+}
+
+#carrousel-ul-img{
+	list-style:none;
+	margin: 0px 0px;
+	padding: 0px;
+}
+
+.carrousel-img{
+	display: none;
+	width: 500px;
+	height: 300px;
+}
+
+#carrousel-ul-img li:first-child .carrousel-img{
+	display: block;
+}
+/*------------------------------- submenu ------------------------------------------------------*/
+#carrousel-ul-p{
+	list-style: none;
+	display: inline-block;
+	margin: 0px 0px;
+	padding: 0px;
+	position: absolute;
+	bottom: 0%;
+
+}
+.carrousel-p{
+	display: inline-block;
+	margin: 0px 5px;
+	border: solid black 1px;
+	padding: 1px 1px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+/*------------------------------------------------- flechas ---------------------*/
+
+.carrousel-flecha{
+	width: 30px;
+	height: 30px;
+	margin: 0px 0px;
+	font-size: 35px;
+	position: absolute;
+	top:50%;
+	right: 0%;
+	text-align: center;
+	border: solid black 2px;
+
+}
+
+.carrousel-flecha:first-child{
+	left:0%;
+}

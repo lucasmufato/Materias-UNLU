@@ -145,6 +145,10 @@ class Controlador{
                     $articulo->imagen  = $art["imagen"];
                     $articulo->activo = $art["estado"];
                     
+                    //HARDCODEADO PARA Q NO DEVUELVA LOS COMENTARIOS
+                    $articulo->comentarios = NULL;
+                    return $articulo;
+                    
                     $sent = $this->conn->prepare("Select id_comentario, usuario,coment from t_comentario c where c.articulo = ?" );
                     $sent->bindParam(1,$id);
                     $sent->execute();
@@ -244,7 +248,10 @@ class Controlador{
         $sentencia->bindParam(3, $c->id_articulo);
         $sentencia->execute();
         $this->cerrarConexion();
-        header('Location: verArticulo.php?id=' . $c->id_articulo);
+        if(! isset($_POST["comentarios"])){
+             //header('Location: verArticulo.php?id=' . $c->id_articulo);
+        }
+       
     }
     
     function eliminarComentario(){
@@ -259,5 +266,25 @@ class Controlador{
     function cerrarConexion(){
         $this->conn=null;
     }
+    
+    function getAllComentarios(){
+        $id = $_GET["idArticulo"];
+        $sent = $this->conn->prepare("Select id_comentario, usuario,coment from t_comentario c where c.articulo = ?" );
+        $sent->bindParam(1,$id);
+        $sent->execute();
+        $coments = $sent->fetchAll();
+        $comentarios=null;
+        foreach($coments as $tupla){
+            $c = new Comentario();
+            $c->id = $tupla["id_comentario"];
+            $c->id_articulo= $id;
+            $c->usuario= $tupla["usuario"];
+            $c->coment = $tupla["coment"];
+            $comentarios[] = $c;
+        }
+        $this->cerrarConexion();
+        return $comentarios;
+    }
+    
 }
 ?>
