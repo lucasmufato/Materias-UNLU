@@ -1,0 +1,31 @@
+h1, h2{
+    text-align: center;
+    font-size: 3em;
+}
+
+/*           ASIDE             */
+#introduction{
+    float:left;
+    background-color: #69D2E7;
+    width: 30%;
+}
+
+#titulo , #studing{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#profileImg{
+    width: 100%;
+    border-radius: 50%;
+}
+
+/*          INNER                  */
+.inner{
+    float: right;
+    width: 70%;
+}
+
+.inner h4{
+    font-size: 1.5em;
+}
