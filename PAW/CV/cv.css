@@ -1,18 +1,41 @@
+body{
+    margin: 0;
+    background-color: #354458;
+    height: 100%;
+}
+
+body *{
+     font-family: 'Libre Baskerville', serif;
+}
+
 h1, h2{
     text-align: center;
     font-size: 3em;
 }
 
+h2{
+    color: #354458;
+}
+
+h1{
+    text-transform: uppercase;
+     color:white;
+}
 /*           ASIDE             */
 #introduction{
     float:left;
-    background-color: #69D2E7;
+    background-color: #A7DBDB;
     width: 30%;
+    height: 100%;
 }
 
 #titulo , #studing{
     text-align: center;
     font-size: 1.5em;
+}
+
+#titulo{
+    font-weight: bold;
 }
 
 #profileImg{
@@ -23,9 +46,49 @@ h1, h2{
 /*          INNER                  */
 .inner{
     float: right;
-    width: 70%;
+    width: 65%;
+    margin: 1% 1%;
+    padding: 1% 1%;
+    /* border: 1px solid black; */
+    background-color: #E0E4CC;
+    border-bottom-style: inset;
 }
 
-.inner h4{
+.inner h4, h3{
     font-size: 1.5em;
+    color: #354458;
+}
+
+h3{
+    
+}
+
+#education{
+    margin-top: 0;
+}
+
+/*         TABLES           */
+
+.table .row{
+    margin-bottom: 50px;
+    padding: 50px;
+}
+
+
+/**  RESPONSIVE   phone      */
+
+@media only screen and (max-width: 600px) {
+    #introduction, .inner{
+        float: left;
+        width: 95%;
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 0%;
+    }
+    
+    #profileImg{
+        width: 50%;
+        border-radius: 50%;
+        right: 50%;
+    }
 }
