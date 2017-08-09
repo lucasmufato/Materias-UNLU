@@ -9,7 +9,7 @@ body{
 	background-size: cover;
 	background-position: center center;
 	z-index: 1;
-    background-image: url('https://www.phyramid.com/images/blog/making-phyramid-coms-procedurally-rendered-3d-header/header-background-indexed.png');
+    background-image: url('img/header-background-indexed.png');
 }
 
 .main-title {
