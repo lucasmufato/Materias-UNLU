@@ -65,11 +65,25 @@ h1{
 
 /*         TABLES           */
 
-.table .row{
-    margin-bottom: 50px;
-    padding: 50px;
+.table{
 }
 
+.year{
+    padding-right: 35px;
+    padding-bottom: 5px;
+}
+
+.skill{
+    padding-bottom: 5px;
+}
+
+#tableLeng .skill{
+    padding-right: 95px;
+}
+
+.description{
+    padding-bottom: 5px;
+}
 
 /**  RESPONSIVE   phone      */
 

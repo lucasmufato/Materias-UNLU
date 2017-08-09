@@ -5,15 +5,22 @@
     <title>Home</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    <!-- demo-1 , TweenLite y EasePack son archivos para lograr el efecto en el header
+    los obtuve de la pagina: https://tympanus.net/codrops/2014/09/23/animated-background-headers/ -->
+    <script src="js/demo-1.js"></script>
+    <script src="js/TweenLite.min.js"></script>
+    <script src="js/EasePack.min.js"></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header>
-	<h1>Mi Pagina</h1>
-	<h2>Hola, soy Lucas Mufato, un estudiante de IT de Luján, Buenos Aires, Argentina y esta es mi pagina <br>
-	Aca podran encontrar links a mi CV, trabajos mios y/o de mis compañeros y en un futuro un blog </h2>
+<header id='large-header' class="large-header">
+    <canvas id="demo-canvas"></canvas>
+    <h1 class="main-title">Lucas Mufato</h1>
 </header>
 <section>
+  <h2>Hola! Soy un estudiante de TI de Luján, Buenos Aires, Argentina y esta es mi pagina <br>
+	Aca podran encontrar links a mi CV, trabajos mios y/o de mis compañeros y, en un futuro, un blog </h2>
    <h3>Links:</h3>
     <ul>
         <li><a href="cv/LucasMufato.html"> Curriculum Vitae</a></li>
@@ -21,7 +28,7 @@
     </ul>
 </section>
 <footer>
-    
+    <p>Copyright - Lucas Mufato - 2017</p>
 </footer>
 </body>
 </html>

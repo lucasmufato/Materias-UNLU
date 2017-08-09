@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+    background-image: url('https://www.phyramid.com/images/blog/making-phyramid-coms-procedurally-rendered-3d-header/header-background-indexed.png');
+}
+
+.main-title {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	color: #f9f1e9;
+	text-align: center;
+    font-size: 4em;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
