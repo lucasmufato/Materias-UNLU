@@ -23,25 +23,22 @@ class PageScratcher:
     def __init__(self):
         self.pagina = "http://www.dga-dpto-concursos.unlu.edu.ar/?q=node/24"
         self.xPathALaTabla = '//*[@id="node-27"]/div[1]/div/table[1]/tbody'
-
-        self.nroTabla = 0
         self.arbolHtml = None
+        self.concursos = []
 
     def parsearPagina(self):
-        self.concursos = []
+
         pagina = requests.get(self.pagina)
         self.arbolHtml = html.fromstring(pagina.content)
         div = self.arbolHtml.xpath( self.xPathALaTabla )
-        print "obtuve " , div
         for tr in div[0]:
             for td in tr:
                 if 'Computación' in td.text:
                     concurso = Concurso()
-                    concurso.cargo = 'Computación'
-                    i=0
+                    concurso.divison = 'Computación'
                     for dato in td:
                         if dato.text != None:
-                            concurso.resolucion = dato.tail
+                            concurso.resolucion = dato.text
                         if dato.tail != None:
                             concurso.area += dato.tail
                     concurso.dividirCampos()
@@ -52,8 +49,4 @@ class PageScratcher:
         for conc in self.concursos:
             print conc
 
-print "iniciando"
-p = PageScratcher()
-p.parsearPagina()
-p.mostrar()
 
