@@ -1,0 +1,2 @@
+hola mundo hola minimo Minimál. La primera ves que escribi un "hola mundo" fui muy feliz.
+Fue en un programa hecho en Pascal, en programacion 1, ya que antes programabamos en pseudo codigo.
