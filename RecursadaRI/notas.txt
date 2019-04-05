@@ -1,0 +1,32 @@
+para pasar a escala logaritmica, tengo q aplicar log a ambos lados.
+
+
+
+instalar jupiter lab tambien
+
+
+
+punto 8
+del punto anterior, ya tengo los C y alfa estimados
+ahora puedo poner determinados F que pasan
+
+
+
+coleccion CISI
+va a haber una cantidad
+
+
+para el primer ejercisio de la ley de zpif
+lo primero q hay q hacer es un ajuste
+
+ajuste = np.polyfit(xlog, ylog, 1)
+#devuelve [ alfa, C ] -- de la ley de zipf
+
+recta = np.poly1d( ajuste )
+#devuelve algo que es un polinomio
+
+ypred = recta(xlog)
+
+PARA CALCULAR COEFICIENTE DE CORRELACION
+r_cuad = rz.score(ylog, ypred)
+
