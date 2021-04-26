@@ -8,8 +8,8 @@ class Vocabulary:
     def __init__(self):
         self.terminos: dict = {}
 
-    def agregar(self, terminos: dict, docId: int):
-        for term, cant in terminos.items():
+    def agregar(self, nuevos_terminos: dict, docId: int):
+        for term, cant in nuevos_terminos.items():
             if term in self.terminos:
                 self.__actualizar_posting(docId, term, cant)
             else:
