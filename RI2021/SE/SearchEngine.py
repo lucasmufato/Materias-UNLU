@@ -46,7 +46,7 @@ class SearchEngine:
             this.statistics.increase_terms(doc.nro_term)
             file.close()
 
-    def contarTermsYTokens(self, doc, terminos, tokens):
+    def contarTermsYTokens(self, doc, terminos:dict, tokens:[str]):
         cant_tokens = len(tokens)
         self.statistics.increase_tokens(cant_tokens)
         doc.increase_tokens(cant_tokens)

@@ -1,4 +1,6 @@
 from typing import Dict
+
+from nltk import PorterStemmer, LancasterStemmer
 from nltk.stem.snowball import SpanishStemmer
 
 
@@ -14,8 +16,14 @@ class DictionaryStemmer:
                 new_dict[steamed_token] = terminos[token]
         return new_dict
 
-    def stemear_token(self, token):
-        pass
+    def stemear_token(this, token: str) -> str:
+        tokenStemeado = this.stemmer.stem(token)
+        if tokenStemeado in this.resultStemear:
+            this.resultStemear[tokenStemeado].add(token)
+        else:
+            this.resultStemear[tokenStemeado] = set()
+            this.resultStemear[tokenStemeado].add(token)
+        return tokenStemeado
 
 
 class EmptySteamer(DictionaryStemmer):
@@ -29,14 +37,20 @@ class SnowBallSpanishStemmer(DictionaryStemmer):
     def __init__(self) -> None:
         super().__init__()
         self.stemmer = SpanishStemmer()
-        self.resultStemear = {}  # diccionario de tokensStemeados q apunta a un set de los tokens sin stemear
-        # ej: comput -> cumputacion, computar, computadora...
+        self.resultStemear = {}
 
-    def stemear_token(this, token: str) -> str:
-        tokenStemeado = this.stemmer.stem(token)
-        if tokenStemeado in this.resultStemear:
-            this.resultStemear[tokenStemeado].add(token)
-        else:
-            this.resultStemear[tokenStemeado] = set()
-            this.resultStemear[tokenStemeado].add(token)
-        return tokenStemeado
+
+class MyPorterStemmer(DictionaryStemmer):
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.stemmer = PorterStemmer()
+        self.resultStemear = {}
+
+
+class MyLancasterStemmer(DictionaryStemmer):
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.stemmer = LancasterStemmer()
+        self.resultStemear = {}
