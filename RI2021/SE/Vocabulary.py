@@ -6,37 +6,37 @@ class Vocabulary:
     """
 
     def __init__(self):
-        self.terminos: dict = {}
+        self.__terminos: dict = {}
 
     def agregar(self, nuevos_terminos: dict, docId: int):
         for term, cant in nuevos_terminos.items():
-            if term in self.terminos:
+            if term in self.__terminos:
                 self.__actualizar_posting(docId, term, cant)
             else:
                 self.__insertar_postlist(docId, term, cant)
 
     def __insertar_postlist(self, docId, term, cant):
-        self.terminos[term] = {docId: cant}
+        self.__terminos[term] = {docId: cant}
 
     def __actualizar_posting(self, docId, term, cant):
-        posting = self.terminos[term]
+        posting = self.__terminos[term]
         if docId in posting:
             posting[docId] += cant
-            self.terminos[term] = posting
+            self.__terminos[term] = posting
         else:
             posting[docId] = cant
-            self.terminos[term] = posting
+            self.__terminos[term] = posting
 
-    def get_terminos(this):
-        return this.terminos
+    def get_terminos(this) -> dict:
+        return this.__terminos
 
-    def get_document_frequency(self, term: str):
-        if term not in self.terminos:
+    def get_document_frequency(self, term: str) -> int:
+        if term not in self.__terminos:
             return 0
-        return len(self.terminos[term])
+        return len(self.__terminos[term])
 
-    def get_termn_frequency(self, term: str):
-        if term not in self.terminos:
+    def get_termn_frequency(self, term: str) -> int:
+        if term not in self.__terminos:
             return 0
-        posting: dict = self.terminos[term]
+        posting: dict = self.__terminos[term]
         return sum(posting.values())

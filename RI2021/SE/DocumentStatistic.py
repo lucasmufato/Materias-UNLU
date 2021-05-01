@@ -22,7 +22,6 @@ class CorpusStatistics:
         super().__init__()
         self.cant_terminos = 0
         self.cant_tokens = 0
-        self.cant_docs = 0
 
     def increase_tokens(self, tokens):
         self.cant_tokens += tokens
@@ -30,8 +29,11 @@ class CorpusStatistics:
     def increase_terms(self, terms):
         self.cant_terminos += terms
 
-    def increase_docs(self):
-        self.cant_docs += 1
+    def get_cant_terminos(self) -> int:
+        return self.cant_terminos
+
+    def get_cant_tokens(self) -> int:
+        return self.cant_tokens
 
     def armar_terminos_txt(self, vocabulario: Vocabulary):
         print("armando terminos.txt ...")
@@ -65,13 +67,22 @@ class CorpusStatistics:
         long = long / len(copia)
         file = open("estadisticas.txt", "w")
         file.write("cant documentos: {0} \r\n".format(str(cantDocumentos)))
-        file.write("cantidad tokens: {0}\t\t cantidad terminos: {1} \r\n".format(str(self.cant_tokens), str(len(vocabulario.terminos))))
-        file.write("promedio tokens: {0}\t\t promedio terminos: {1} \r\n".format(str(self.cant_tokens / cantDocumentos), str(len(vocabulario.terminos) / cantDocumentos)))
+        file.write("cantidad tokens: {0}\t\t cantidad terminos: {1} \r\n".format(str(self.cant_tokens),
+                                                                                 str(len(vocabulario.get_terminos()))))
+        file.write("promedio tokens: {0}\t\t promedio terminos: {1} \r\n".format(str(self.cant_tokens / cantDocumentos),
+                                                                                 str(len(
+                                                                                     vocabulario.get_terminos()) / cantDocumentos)))
         file.write("largo promedio token: {0} \r\n".format(str(long)))
         shortest_file = min(documentos, key=lambda x: x.nro_tokens)
         biggest_file = max(documentos, key=lambda x: x.nro_tokens)
-        file.write("archivos mas corto es {2} -> tokens: {0}\t\t terminos: {1}\r\n".format(str(shortest_file.nro_tokens), str(shortest_file.nro_term), shortest_file.name))
-        file.write("archivos mas largo es {2} -> tokens: {0}\t\t terminos: {1} \r\n".format(str(biggest_file.nro_tokens), str(biggest_file.nro_term),  shortest_file.name))
+        file.write(
+            "archivos mas corto es {2} -> tokens: {0}\t\t terminos: {1}\r\n".format(str(shortest_file.nro_tokens),
+                                                                                    str(shortest_file.nro_term),
+                                                                                    shortest_file.name))
+        file.write(
+            "archivos mas largo es {2} -> tokens: {0}\t\t terminos: {1} \r\n".format(str(biggest_file.nro_tokens),
+                                                                                     str(biggest_file.nro_term),
+                                                                                     shortest_file.name))
         file.write("Terminos que se repiten una vez:")
         for term in fewRepTerm:
             file.write("{0} \r\n".format(str(term)))
@@ -107,3 +118,8 @@ class CorpusStatistics:
         file.write(str(minimos) + "\r\n")
         file.close()
         print("fin frecuencias")
+
+    def armar_archivos(self, vocabulary: Vocabulary, document_index):
+        self.arma_frecuencias_txt(vocabulary)
+        self.armar_terminos_txt(vocabulary)
+        self.armar_estadisticas_txt(vocabulary, document_index.getDocumentsAsList())

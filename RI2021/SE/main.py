@@ -1,5 +1,7 @@
 import sys
 
+from SE.DocumentIndex import DocumentIndex
+from SE.DocumentProcessor import DocumentProcessor
 from SE.DocumentStatistic import CorpusStatistics
 from SE.EmptyFiles import leerListaVacia
 from SE.SearchEngine import SearchEngine
@@ -25,21 +27,31 @@ else:
         "ej: python3 main.py 2 ../RI-tknz-data/ ../emptyWords/vacias.txt")
     sys.exit(-1)
 
+
+statistics = CorpusStatistics()
+vocabulary = Vocabulary()
+document_index = DocumentIndex()
+
 if punto == "1":
-    se = SearchEngine(SimpleTokenizer(), CorpusStatistics(), Vocabulary())
+    processor = DocumentProcessor(SimpleTokenizer(), statistics, vocabulary, document_index)
+    se = SearchEngine(statistics, vocabulary, processor)
     se.search(carpeta, palabrasVacias)
 elif punto == "2":
-    se = SearchEngine(Tokenizer(), CorpusStatistics(), Vocabulary())
+    processor = DocumentProcessor(Tokenizer(), statistics, vocabulary, document_index)
+    se = SearchEngine(statistics, vocabulary, processor)
     se.search(carpeta, palabrasVacias)
+    statistics.armar_archivos(vocabulary, document_index)
 elif punto == "3":
     componente = "(?:\d*[A-Z][a-z]?\d?)+"
     c_sin_match = f"(?:{componente})"
     c_con_match = f"({componente})"
     expresion = f"{c_sin_match}\\s*(?:[\\+\\-]\\s*{c_sin_match}\\s)*[\\=\\-]\\>\\s*{c_sin_match}\\s*(?:[\\+\\-]\\s*{c_sin_match})*"
-    se = SearchEngine(Tokenizer([c_con_match, expresion]), CorpusStatistics(), Vocabulary())
+    processor = DocumentProcessor(Tokenizer([c_con_match, expresion]), statistics, vocabulary, document_index)
+    se = SearchEngine(statistics, vocabulary, processor)
     se.search(carpeta, palabrasVacias)
 elif punto == "4":
-    se = SearchEngine(Tokenizer(), CorpusStatistics(), Vocabulary(), SnowBallSpanishStemmer())
+    processor = DocumentProcessor(Tokenizer(), statistics, vocabulary, document_index, SnowBallSpanishStemmer())
+    se = SearchEngine(statistics, vocabulary, processor)
     se.search(carpeta, palabrasVacias)
 else:
     print("Le erraste con el punto del tp")

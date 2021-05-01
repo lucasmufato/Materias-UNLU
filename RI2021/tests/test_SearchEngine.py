@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import Mock
 
 from SE.DocumentStatistic import CorpusStatistics
 from SE.SearchEngine import SearchEngine
@@ -13,10 +14,17 @@ class TestSearchEngine(unittest.TestCase):
         self.tokenizer = SimpleTokenizer()
         self.statistics = CorpusStatistics()
         self.vocabulary = Vocabulary()
-        self.engine: SearchEngine = SearchEngine(self.tokenizer, self.statistics, self.vocabulary)
+        self.processor = Mock()
+        self.engine: SearchEngine = SearchEngine(self.statistics, self.vocabulary, self.processor)
 
-    def test_statistics(self):
+    def test_reads_all_files(self):
         self.engine.scan_directory("files/", [])
-        self.assertEqual(106, self.statistics.cant_tokens)
-        self.assertEqual(91, self.statistics.cant_terminos)
-        self.assertEqual(2, self.statistics.cant_docs)
+        self.processor.process_file.assert_any_call("files/one.txt", [])
+        self.processor.process_file.assert_any_call("files/two.txt", [])
+        self.processor.process_file.assert_any_call("files/three.txt", [])
+
+    # def test_statistics(self):
+    #     self.engine.scan_directory("files/", [])
+    #     self.assertEqual(106, self.statistics.cant_tokens)
+    #     self.assertEqual(91, self.statistics.cant_terminos)
+    #     self.assertEqual(2, self.statistics.cant_docs)
