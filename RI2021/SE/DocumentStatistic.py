@@ -82,7 +82,7 @@ class CorpusStatistics:
         file.write(
             "archivos mas largo es {2} -> tokens: {0}\t\t terminos: {1} \r\n".format(str(biggest_file.nro_tokens),
                                                                                      str(biggest_file.nro_term),
-                                                                                     shortest_file.name))
+                                                                                     biggest_file.name))
         file.write("Terminos que se repiten una vez:")
         for term in fewRepTerm:
             file.write("{0} \r\n".format(str(term)))
