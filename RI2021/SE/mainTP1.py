@@ -10,24 +10,28 @@ from SE.Steammers import SnowBallSpanishStemmer, MyPorterStemmer, MyLancasterSte
 from SE.Tokenizer import SimpleTokenizer, Tokenizer
 from SE.Vocabulary import Vocabulary
 
-palabrasVacias = [""]
-carpeta = "..files/"
-punto = 1
 
-if len(sys.argv) == 3:
-    punto = sys.argv[1]
-    carpeta = sys.argv[2]
-elif len(sys.argv) == 4:
-    punto = sys.argv[1]
-    carpeta = sys.argv[2]
-    palabrasVacias = leerListaVacia("../emptyWords/vacias.txt", "\n")
-else:
-    print(
-        "Mal paso de parametros! invocalo con: nroPunto directorioAIndexar pathPalabrasVacias")
-    print(
-        "ej: python3 main.py 2 ../RI-tknz-data/ ../emptyWords/vacias.txt")
-    sys.exit(-1)
+def read_script_params():
+    palabrasVacias = [""]
+    carpeta = "..files/"
+    punto = 1
+    if len(sys.argv) == 3:
+        punto = sys.argv[1]
+        carpeta = sys.argv[2]
+    elif len(sys.argv) == 4:
+        punto = sys.argv[1]
+        carpeta = sys.argv[2]
+        palabrasVacias = leerListaVacia(sys.argv[3], "\n")
+    else:
+        print(
+            "Mal paso de parametros! invocalo con: nroPunto directorioAIndexar pathPalabrasVacias")
+        print(
+            "ej: python3 mainTP1.py 2 ../RI-tknz-data/ ../emptyWords/vacias.txt")
+        sys.exit(-1)
+    return palabrasVacias, carpeta, punto
 
+
+palabrasVacias, carpeta, punto = read_script_params()
 
 statistics = CorpusStatistics()
 vocabulary = Vocabulary()

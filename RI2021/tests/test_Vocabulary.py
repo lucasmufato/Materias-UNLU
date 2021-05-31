@@ -38,6 +38,13 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, v.get_termn_frequency("casa"))
         self.assertEqual(2, v.get_termn_frequency("tomate"))
 
+    def test_get_postlists(self):
+        v = Vocabulary()
+        v.agregar({"casa": 1, "perro": 2}, 1)
+        v.agregar({"tomate": 1, "perro": 1}, 2)
+        self.assertEqual({1: 1}, v.get_posting("casa"))
+        self.assertEqual({1: 2, 2: 1}, v.get_posting("perro"))
+
 
 if __name__ == '__main__':
     unittest.main()
