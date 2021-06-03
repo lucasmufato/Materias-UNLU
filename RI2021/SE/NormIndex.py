@@ -1,8 +1,7 @@
 import math
+from typing import Dict
 
 from SE.IdfIndex import IDFIndex
-from typing import Dict, List
-
 from SE.Vocabulary import Vocabulary
 
 

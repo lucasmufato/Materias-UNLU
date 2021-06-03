@@ -1,6 +1,6 @@
-class QueryResults:
+class QueryResult:
 
-    def __init__(self, doc_id, doc_name, weight) -> None:
+    def __init__(self, doc_id, weight, doc_name="") -> None:
         super().__init__()
         self.doc_id = doc_id
         self.doc_name = doc_name

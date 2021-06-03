@@ -1,22 +1,30 @@
 from collections import Counter
 
+from SE.DocumentIndex import DocumentIndex
 from SE.QueryProcessor import QueryProcessor
 from SE.Steammers import DictionaryStemmer
 from SE.Tokenizer import Tokenizer
-from SE.queries.QueryResults import QueryResults
+from SE.queries.QueryResult import QueryResult
 
 
 class QueryProcessingCoordinator:
 
-    def __init__(self, tokenizer: Tokenizer, stemmer: DictionaryStemmer, processor: QueryProcessor) -> None:
+    def __init__(self, tokenizer: Tokenizer, stemmer: DictionaryStemmer, processor: QueryProcessor, document_index: DocumentIndex) -> None:
         super().__init__()
         self.tokenizer = tokenizer
         self.stemmer = stemmer
         self.processor = processor
+        self.documents = document_index
 
-    def process(self, originalQuery: str) -> [QueryResults]:
+    def process(self, originalQuery: str) -> [QueryResult]:
         query_vector = self.query_pipeline_converter(originalQuery)
-        return self.processor.process(query_vector)
+        result = self.processor.process(query_vector)
+        self.agregar_nombre_documentos_a_conjunto_resultado(result)
+        return result
+
+    def agregar_nombre_documentos_a_conjunto_resultado(self, result):
+        for res in result:
+            res.doc_name = self.documents.getNameForId(res.doc_id)
 
     def query_pipeline_converter(self, originalQuery) -> dict:
         query = self.tokenizer.invoke(originalQuery)

@@ -21,3 +21,8 @@ class DocumentIndex:
     def getDocumentsAsList(self) -> List[DocumentStatistics]:
         return self.documents
 
+    def getNameForId(self, doc_id: int) -> str:
+        return self.documents[doc_id]
+
+    def getSize(self) -> int:
+        return len(self.documents)
