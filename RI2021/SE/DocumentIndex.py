@@ -7,7 +7,7 @@ class DocumentIndex:
 
     def __init__(self) -> None:
         super().__init__()
-        self.documents: [] = []
+        self.documents: [DocumentStatistics] = []
 
     def createAndReturn(self, filename) -> DocumentStatistics:
         fileId = len(self.documents)
@@ -22,7 +22,7 @@ class DocumentIndex:
         return self.documents
 
     def getNameForId(self, doc_id: int) -> str:
-        return self.documents[doc_id]
+        return self.documents[doc_id].name
 
     def getSize(self) -> int:
         return len(self.documents)
