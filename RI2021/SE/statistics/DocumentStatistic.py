@@ -1,4 +1,4 @@
-from SE.Vocabulary import Vocabulary
+from SE.core.indexs.Vocabulary import Vocabulary
 
 
 class DocumentStatistics:
@@ -46,7 +46,7 @@ class CorpusStatistics:
             cf = 0
             for fileId in tupla[1]:
                 cf += tupla[1][fileId]
-            file.write(tupla[0] + "\t\t  -CF: " + str(cf) + "\t\t  -DF: " + str(len(tupla[1])) + " \r\n")
+            file.write(tupla[0] + "\t\t  -CF: " + str(cf) + "\t\t  -TFxIDF: " + str(len(tupla[1])) + " \r\n")
         file.close()
         print("fin terminos")
 

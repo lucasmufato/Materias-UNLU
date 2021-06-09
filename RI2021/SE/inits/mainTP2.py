@@ -1,22 +1,22 @@
 import sys
 import time
 
-from SE.DocumentIndex import DocumentIndex
-from SE.DocumentProcessor import DocumentProcessor
-from SE.DocumentStatistic import CorpusStatistics
-from SE.EmptyFiles import leerListaVacia
-from SE.IdfIndex import IDFIndex
-from SE.NormIndex import NormIndex
-from SE.QueryInterface import QueryInterface
-from SE.QueryProcessingCoordinator import QueryProcessingCoordinator
-from SE.QueryProcessor import QueryProcessor
-from SE.SearchEngine import SearchEngine
-from SE.Steammers import EmptySteamer
-from SE.Tokenizer import Tokenizer
-from SE.Vocabulary import Vocabulary
+from SE.core.indexs.DocumentIndex import DocumentIndex
+from SE.io.DocumentProcessor import DocumentProcessor
+from SE.statistics.DocumentStatistic import CorpusStatistics
+from SE.io.EmptyFiles import leerListaVacia
+from SE.TFxIDF.IdfIndex import IDFIndex
+from SE.TFxIDF.NormIndex import NormIndex
+from SE.io.QueryInterface import QueryInterface
+from SE.TFxIDF.QueryProcessingCoordinator import QueryProcessingCoordinator
+from SE.TFxIDF.QueryProcessor import QueryProcessor
+from SE.io.DirectoryScanner import DirectoryScanner
+from SE.tokenizers.Steammers import EmptySteamer
+from SE.tokenizers.Tokenizer import Tokenizer
+from SE.core.indexs.Vocabulary import Vocabulary
 
 palabrasVacias = ["la"]
-carpeta = "..collectins/tolosa"
+carpeta = "..collections/tolosa"
 punto = 1
 
 if len(sys.argv) == 2:
@@ -38,8 +38,8 @@ document_index = DocumentIndex()
 inicio = time.time()
 tokenizer = Tokenizer()
 processor = DocumentProcessor(tokenizer, statistics, vocabulary, document_index)
-se = SearchEngine(processor)
-se.search(carpeta, palabrasVacias)
+se = DirectoryScanner(processor)
+se.scan_directory(carpeta, palabrasVacias)
 print("tardo {0} en armar vocabulario...".format(str(time.time() - inicio)))
 print("armando IDFs y normas de doc")
 idf_index = IDFIndex()

@@ -1,16 +1,13 @@
 import os
 
-from SE.DocumentProcessor import DocumentProcessor
+from SE.io.DocumentProcessor import DocumentProcessor
 
 
-class SearchEngine:
+class DirectoryScanner:
 
     def __init__(self, processor: DocumentProcessor) -> None:
         super().__init__()
         self.processor: DocumentProcessor = processor
-
-    def search(self, directory: str, vacias: [str]):
-        self.scan_directory(directory, vacias)
 
     def scan_directory(self, directory: str, lista_vacias: [str]):
         print("scaning directory: " + directory)

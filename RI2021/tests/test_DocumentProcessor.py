@@ -1,10 +1,10 @@
 from unittest import TestCase
 
-from SE.DocumentIndex import DocumentIndex
-from SE.DocumentProcessor import DocumentProcessor
-from SE.DocumentStatistic import CorpusStatistics
-from SE.Tokenizer import Tokenizer
-from SE.Vocabulary import Vocabulary
+from SE.core.indexs.DocumentIndex import DocumentIndex
+from SE.io.DocumentProcessor import DocumentProcessor
+from SE.statistics.DocumentStatistic import CorpusStatistics
+from SE.tokenizers.Tokenizer import Tokenizer
+from SE.core.indexs.Vocabulary import Vocabulary
 
 class TestDocumentProcessor(TestCase):
 

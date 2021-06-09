@@ -1,9 +1,9 @@
 from collections import Counter
 
-from SE.DocumentIndex import DocumentIndex
-from SE.QueryProcessor import QueryProcessor
-from SE.Steammers import DictionaryStemmer
-from SE.Tokenizer import Tokenizer
+from SE.core.indexs.DocumentIndex import DocumentIndex
+from SE.TFxIDF.QueryProcessor import QueryProcessor
+from SE.tokenizers.Steammers import DictionaryStemmer
+from SE.tokenizers.Tokenizer import Tokenizer
 from SE.queries.QueryResult import QueryResult
 
 

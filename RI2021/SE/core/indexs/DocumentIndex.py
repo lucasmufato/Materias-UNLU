@@ -1,6 +1,6 @@
 from typing import List
 
-from SE.DocumentStatistic import DocumentStatistics
+from SE.statistics.DocumentStatistic import DocumentStatistics
 
 
 class DocumentIndex:

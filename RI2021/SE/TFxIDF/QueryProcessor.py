@@ -1,8 +1,8 @@
 from typing import Dict
 
-from SE import IdfIndex
-from SE.NormIndex import NormIndex
-from SE.Vocabulary import Vocabulary
+from SE.TFxIDF import IdfIndex
+from SE.TFxIDF.NormIndex import NormIndex
+from SE.core.indexs.Vocabulary import Vocabulary
 from SE.queries.QueryResult import QueryResult
 
 

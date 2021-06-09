@@ -1,9 +1,9 @@
 from unittest import TestCase
 
-from SE.IdfIndex import IDFIndex
-from SE.NormIndex import NormIndex
-from SE.QueryProcessor import QueryProcessor
-from SE.Vocabulary import Vocabulary
+from SE.TFxIDF.IdfIndex import IDFIndex
+from SE.TFxIDF.NormIndex import NormIndex
+from SE.TFxIDF.QueryProcessor import QueryProcessor
+from SE.core.indexs.Vocabulary import Vocabulary
 
 
 class TestQueryProcessor(TestCase):

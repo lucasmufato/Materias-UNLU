@@ -1,9 +1,9 @@
 from collections import Counter
 
-from SE.DocumentIndex import DocumentIndex
-from SE.DocumentStatistic import CorpusStatistics
-from SE.Steammers import EmptySteamer, DictionaryStemmer
-from SE.Vocabulary import Vocabulary
+from SE.core.indexs.DocumentIndex import DocumentIndex
+from SE.statistics.DocumentStatistic import CorpusStatistics
+from SE.tokenizers.Steammers import EmptySteamer, DictionaryStemmer
+from SE.core.indexs.Vocabulary import Vocabulary
 
 
 class DocumentProcessor:

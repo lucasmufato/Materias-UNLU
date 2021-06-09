@@ -1,6 +1,6 @@
 import math
 
-from SE.Vocabulary import Vocabulary
+from SE.core.indexs.Vocabulary import Vocabulary
 
 
 class IDFIndex:

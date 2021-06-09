@@ -1,4 +1,4 @@
-from SE.QueryProcessingCoordinator import QueryProcessingCoordinator
+from SE.TFxIDF.QueryProcessingCoordinator import QueryProcessingCoordinator
 
 
 class QueryInterface:

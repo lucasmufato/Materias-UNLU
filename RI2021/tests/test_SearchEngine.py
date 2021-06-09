@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from SE.SearchEngine import SearchEngine
+from SE.io.DirectoryScanner import DirectoryScanner
 
 
 class TestSearchEngine(unittest.TestCase):
@@ -9,7 +9,7 @@ class TestSearchEngine(unittest.TestCase):
     def setUp(self) -> None:
         super().setUp()
         self.processor = Mock()
-        self.engine: SearchEngine = SearchEngine(self.processor)
+        self.engine: DirectoryScanner = DirectoryScanner(self.processor)
 
     def test_reads_all_files(self):
         self.engine.scan_directory("files/", [])

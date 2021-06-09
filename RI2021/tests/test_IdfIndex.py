@@ -1,8 +1,7 @@
-import math
 from unittest import TestCase
 
-from SE.IdfIndex import IDFIndex
-from SE.Vocabulary import Vocabulary
+from SE.TFxIDF.IdfIndex import IDFIndex
+from SE.core.indexs.Vocabulary import Vocabulary
 
 
 class TestIDFIndex(TestCase):

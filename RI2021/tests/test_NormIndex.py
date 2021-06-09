@@ -1,9 +1,9 @@
 from unittest import TestCase
 from unittest.mock import Mock
 
-from SE.IdfIndex import IDFIndex
-from SE.NormIndex import NormIndex
-from SE.Vocabulary import Vocabulary
+from SE.TFxIDF.IdfIndex import IDFIndex
+from SE.TFxIDF.NormIndex import NormIndex
+from SE.core.indexs.Vocabulary import Vocabulary
 
 
 class TestNormIndex(TestCase):

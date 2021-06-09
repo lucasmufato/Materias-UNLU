@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from SE.Tokenizer import Tokenizer
+from SE.tokenizers.Tokenizer import Tokenizer
 
 
 class TestTokenizer(TestCase):

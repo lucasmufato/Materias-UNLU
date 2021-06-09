@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from SE.Steammers import SnowBallSpanishStemmer, MyPorterStemmer, MyLancasterStemmer
+from SE.tokenizers.Steammers import SnowBallSpanishStemmer, MyPorterStemmer, MyLancasterStemmer
 
 
 class TestDictionaryStemmer(TestCase):
