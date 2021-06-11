@@ -4,7 +4,7 @@ from unittest.mock import Mock
 from SE.io.DirectoryScanner import DirectoryScanner
 
 
-class TestSearchEngine(unittest.TestCase):
+class TestDirectoryScanner(unittest.TestCase):
 
     def setUp(self) -> None:
         super().setUp()

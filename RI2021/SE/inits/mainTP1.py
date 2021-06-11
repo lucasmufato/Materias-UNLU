@@ -4,7 +4,7 @@ import time
 from SE.core.indexs.DocumentIndex import DocumentIndex
 from SE.io.DocumentProcessor import DocumentProcessor
 from SE.statistics.DocumentStatistic import CorpusStatistics
-from SE.io.EmptyFiles import leerListaVacia
+from SE.io.EmptyWords import leerListaVacia
 from SE.io.DirectoryScanner import DirectoryScanner
 from SE.tokenizers.Steammers import SnowBallSpanishStemmer, MyPorterStemmer, MyLancasterStemmer
 from SE.tokenizers.Tokenizer import SimpleTokenizer, Tokenizer

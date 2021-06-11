@@ -3,7 +3,7 @@ import unittest
 from SE.core.indexs.Vocabulary import Vocabulary
 
 
-class MyTestCase(unittest.TestCase):
+class test_Vocabulary(unittest.TestCase):
 
     def test_insertar_un_termino(self):
         v = Vocabulary()
@@ -44,7 +44,3 @@ class MyTestCase(unittest.TestCase):
         v.agregar({"tomate": 1, "perro": 1}, 2)
         self.assertEqual({1: 1}, v.get_posting("casa"))
         self.assertEqual({1: 2, 2: 1}, v.get_posting("perro"))
-
-
-if __name__ == '__main__':
-    unittest.main()

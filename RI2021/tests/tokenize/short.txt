@@ -1,3 +1,2 @@
 Esto es un texto en castellano el cual contiene un conjunto pequeño con algun caracter raro. Ojo con la diferencia entre character del ingles y caracter del castellano.
 Aca se vienen un par de nombres personales como Lucas Mufato que trabaja como software engineer en Etermax y Micaela Guerrero que trabaja en Freevoices
-
