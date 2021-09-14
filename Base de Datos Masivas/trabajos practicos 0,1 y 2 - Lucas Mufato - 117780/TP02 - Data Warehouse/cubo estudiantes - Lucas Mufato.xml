@@ -1,0 +1,70 @@
+<Schema name="Lucas Mufato">
+  <Cube name="Estudiantes" visible="true" cache="true" enabled="true">
+    <Table name="estudiante" schema="public" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_sexo" name="sexo">
+      <Hierarchy name="descripcion" visible="true" hasAll="true" primaryKey="id_sexo">
+        <Table name="sexo" schema="public" alias="">
+        </Table>
+        <Level name="descripcion" visible="true" column="descripcion" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_condicion" name="condicion">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+        <Table name="condicion" schema="public" alias="">
+        </Table>
+        <Level name="descripcion" visible="true" column="descripcion" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_a&#241;o_ingreso" name="fecha de ingreso">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+        <Table name="ingreso" schema="public" alias="">
+        </Table>
+        <Level name="fecha" visible="true" column="fecha" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_sexo" name="sede">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+        <Table name="sede" schema="public" alias="">
+        </Table>
+        <Level name="descripcion" visible="true" column="descripcion" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_plan" name="plan de estudios">
+      <Hierarchy name="descripcion" visible="true" hasAll="true">
+        <Table name="plan" schema="public" alias="">
+        </Table>
+        <Level name="descripcion" visible="true" column="descripcion" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="cantidad" column="fk_sede" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="ventas" visible="true" cache="true" enabled="true">
+    <Table name="venta" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_cliente" name="Cliente">
+      <Hierarchy name="cliente" visible="true" hasAll="true">
+        <Table name="cliente" schema="public" alias="">
+        </Table>
+        <Level name="razon social" visible="true" column="razon_social" uniqueMembers="false">
+        </Level>
+        <Level name="condicion" visible="true" column="condicion" uniqueMembers="false">
+        </Level>
+        <Level name="CUIT" visible="true" column="cuit" uniqueMembers="false">
+        </Level>
+        <Level name="saldo cuenta" visible="true" column="saldo_cuenta" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="unidades vendidas" column="fk_producto" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="New Measure 1" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
