@@ -1,0 +1,88 @@
+---
+title: "Punto 2 - Apriori - cesta de compras"
+output:
+  html_notebook: default
+  pdf_document: default
+---
+A) Los parametros que puedo modificar del algoritmo de Aprori son:
+* support: soporte minimo que debe tener una transaccion para estar en el resultado, proporcion de la cantidad de veces que aparece.
+* confidence: proportcion de cuantas veces se da que dada LHS se encuentre RHS 
+* target: que busca el algoritmo, puede ser itemset frecuentes, reglas de asociacion u otros
+* minlen/maxlen: minimo o maximo numero de item set
+* maxtime: limite de tiempo para chequear subsets
+entre otros
+
+```{r}
+librerias_instaladas<-rownames(installed.packages())
+if("arules" %in% librerias_instaladas == FALSE) {
+  install.packages("arules", dependencies = TRUE)
+}
+librerias_instaladas<-rownames(installed.packages())
+if("arulesviz" %in% librerias_instaladas == FALSE) {
+  install.packages("arulesViz", dependencies = TRUE)
+}
+
+library(arules)
+library(arulesViz)
+```
+```{r}
+data("Groceries")
+```
+```{r}
+reglas <- apriori(Groceries, parameter = list(support=0.01, confidence=0.01,target = "rules"))
+```
+B) es posible ejecutar el algoritmo sobre los datos sin hacer ninguna operacion
+C) Para encontrar las mejores reglas se recomienza usar LIFT ya que nos indica la una proporcion entre la confianza de la regla y la confiaza esperada, esto nos permite saber si ambas partes de una regla son estadisticamente independientes.
+Ordenando el resultado por el Lift vemos las siguientes reglas:
+
+```{r}
+inspect(sort(reglas, by="lift", decreasing = TRUE))
+```
+C-bis) Se puede observar como la regla {whole milk,yogurt}	=>	{curd} es la mejor usando LIFT por mas que tenga un support y confidence bajo.
+Hay algunos casos en los que entiendo que es comun que se lleven varias cosas juntas o no se lleve, puede ser? pienso esto con el caso de:
+{root vegetables}	=>	{beef}
+{beef}	=>	{root vegetables}
+es como 2 cosas q es muy probable que encuentes juntas, ya q una implica la otra y al reves.
+
+D) Aunque el algoritmo se ejecuto muy rapido, entiendo que el algoritmo es "computacionalmente pesado" por lo que dependiendo el objetivo se pueden realizar varios tipos de podas como:
+* aumentar el soporte minimo para encontrar reglas que se repiten mucho
+* aumentar la confianza minima para reglas que tengan mucha implicancia
+* min/max len para seleccionar solo itemset con mayor o menor cantidad de items que algun X (limpiar itemssets con 1 solo item o con demaciados muchos)
+
+E) Siendo todos alimentos se me dificulta encontrar alguna relacion interesante, la mas llamativa es la que nombre en C-bis de {beef}	=>	{root vegetables}, siendo que esta se da bastante, se podria hacer un AB testing en distintos locales y validar si ponerlos cerca aumenta la compras de los mismo o si al ponerlos separados (total la gente los va a buscar igual) y entre medio agregar otros productos, que tiene un confianza alta y en la pre-condicion tiene beef o root vegetables, se aumenta la venta de estos otros productos.
+
+F) En el grafico se puede observar que varias de las reglas que tienen alto soporte tiene un bajo lift y bajo confianza.
+tambien se ve que la mayoria de las reglas estan entre un lift de 1(estadisticamente indepenientes) y un lift de 2. pocas son las que tiene un lift superior a 3 las cuales serian las mas interesantes.
+```{r}
+plot(reglas, measure = c("support", "lift"), shading = "confidence")
+```
+```{r}
+reglas_beer <- apriori(Groceries, parameter = list(support=0.01, confidence=0.01, target = "rules", minlen=2), appearance = list(lhs="bottled beer"))
+inspect(reglas_beer)
+```
+```{r}
+reglas_beer <- apriori(Groceries, parameter = list(support=0.01, confidence=0.01, target = "rules", minlen=2), appearance = list(rhs="bottled beer"))
+inspect(reglas_beer)
+```
+G) la unica regla que tiene un lift minimamente alto como para resultar interesante es bottled water}	=>	{bottled beer} pero creo q no aporta nada
+
+H) Agregaria un tamaño minimo de itemsets, ya q no es interesante implicaciones del tipo {} -> {algo}, primero buscaria relaciones en las que varios elementos impliquen otro para ofrecer ofertas.
+```{r}
+ofertas <- apriori(Groceries, parameter = list(support=0.001, confidence=0.01,target = "rules", minlen= 4))
+inspect(sort(ofertas, by="support", decreasing = TRUE))
+```
+Para ver posibles ofertas tuve que bajar el soporte minimo ya que no habia itemsets de mas de 3 items con soporte mayor que 0.01. Tambien los ordene por soporte y voy mirando a mano el lift.
+en estos casos veo que es comun la compra en general de vegetales, leche, yogur y frutas, son 4 items que en general parecen ir juntos.
+```{r}
+frecuentes <- apriori(Groceries, parameter = list(support=0.05, confidence=0.01,target = "rules", minlen= 2))
+inspect(sort(frecuentes, by="support", decreasing = TRUE))
+```
+inspeccionando aquellos que tengan un support alto tampoco encuentro nada interesante
+
+```{r}
+confianza <- apriori(Groceries, parameter = list(support=0.01, confidence=0.05,target = "rules", minlen= 2))
+inspect(sort(confianza, by="confidence", decreasing = TRUE))
+```
+
+Mirando lo que tiene alta confianza vuelvo a encontrar el caso de varios lacteos juntos {curd,yogurt}	=>	{whole milk}
+tambien tiene sentido las primeras 2 reglas pensando en personas q van a comprar frutas y verduras, se llevan de varios tipos.

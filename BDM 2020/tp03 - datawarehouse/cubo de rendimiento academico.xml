@@ -1,0 +1,62 @@
+<Schema name="rendimiento academico">
+  <Dimension type="StandardDimension" visible="true" name="sede">
+    <Hierarchy name="default" visible="true" hasAll="true">
+      <Table name="sedes" schema="" alias="">
+      </Table>
+      <Level name="sede" visible="true" column="id_sede" nameColumn="sede" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="sexo">
+    <Hierarchy name="default" visible="true" hasAll="true">
+      <Table name="sexo" schema="">
+      </Table>
+      <Level name="sexo" visible="true" column="id_sexo" nameColumn="sexo" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="cohorte">
+    <Hierarchy name="default" visible="true" hasAll="true">
+      <Table name="cohorte" schema="" alias="">
+      </Table>
+      <Level name="cohorte" visible="true" column="cohorte" nameColumn="id_cohortes" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="ciudad">
+    <Hierarchy name="default" visible="true" hasAll="true">
+      <Table name="ciudades" alias="">
+      </Table>
+      <Level name="ciudad" visible="true" column="id_ciudad" nameColumn="nombre_ciudad" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="planes">
+    <Hierarchy name="default" visible="true" hasAll="true">
+      <Table name="planes" schema="">
+      </Table>
+      <Level name="planes" visible="true" column="id_plan" nameColumn="nombre_carrera" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="rendimiento academico" visible="true" cache="true" enabled="true">
+    <Table name="rendimiento_academico" schema="" alias="">
+    </Table>
+    <DimensionUsage source="sede" name="sede" visible="true" foreignKey="id_sede">
+    </DimensionUsage>
+    <DimensionUsage source="sexo" name="sexo" visible="true" foreignKey="id_sexo">
+    </DimensionUsage>
+    <DimensionUsage source="cohorte" name="cohorte" visible="true" foreignKey="id_cohorte">
+    </DimensionUsage>
+    <DimensionUsage source="ciudad" name="ciudad" visible="true" foreignKey="id_ciudad">
+    </DimensionUsage>
+    <DimensionUsage source="planes" name="plan" visible="true" foreignKey="id_plan">
+    </DimensionUsage>
+    <Measure name="cantidad cursadas" column="cantidad_cursadas" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="cantidad aprobadas" column="cantidad_aprobadas" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="promedio" column="promedio" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

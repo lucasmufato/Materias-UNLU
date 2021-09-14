@@ -2,3 +2,5 @@
 .idea/*
 UNLuPY2_7/.idea/
 UNLuPY2_7/.idea/*
+*/.idea/*
+*/venv/*
